@@ -1,4 +1,6 @@
 export const parseThemeID = (string) => {
+	if (typeof string !== 'string') return;
+
 	const split1: String[] = string.split(':');
 	const service: String = split1[0];
 
@@ -18,8 +20,8 @@ export const parseThemeID = (string) => {
 export const stringifyThemeID = (
 	service,
 	{
-		uuid,
-		piece_uuids,
+		uuid = '',
+		piece_uuids = [],
 	}: {
 		uuid: String;
 		piece_uuids: String[];
