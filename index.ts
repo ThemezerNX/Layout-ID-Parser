@@ -1,7 +1,7 @@
-export const parseThemeID = (string) => {
-	if (typeof string !== 'string') return;
+export const parseThemeID = (ID: any) => {
+	if (typeof ID !== 'string') return;
 
-	const split1: String[] = string.split(':');
+	const split1: String[] = ID.split(':');
 	const service: String = split1[0];
 
 	const data: String = split1[1];
