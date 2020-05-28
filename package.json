@@ -1,12 +1,14 @@
 {
-  "name": "layout-id-parser",
+  "name": "@themezernx/layout-id-parser",
   "version": "1.0.0",
   "description": "Simple module to parse the ID string in a layout",
   "repository": "https://github.com/ThemezerNX/Layout-ID-Parser.git",
   "author": "Migushthe2nd <Migushthe2nd@users.noreply.github.com>",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
-    "compile": "tsc ./index.ts"
+    "compile": "tsc ./index.ts",
+    "postinstall": "tsc ./index.ts --outDir ./build"
   },
   "private": false
 }
