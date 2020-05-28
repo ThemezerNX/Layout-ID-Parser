@@ -17,15 +17,14 @@ export const parseThemeID = (string) => {
 	};
 };
 
-export const stringifyThemeID = (
-	service,
-	{
-		uuid = '',
-		piece_uuids = [],
-	}: {
-		uuid: String;
-		piece_uuids: String[];
-	}
-) => {
+export const stringifyThemeID = ({
+	service = '',
+	uuid = '',
+	piece_uuids = [],
+}: {
+	service?: String;
+	uuid: String;
+	piece_uuids?: String[];
+}) => {
 	return `${service}:${uuid}|${piece_uuids.join()}`;
 };
