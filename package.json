@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "tsc ./index.ts",
-    "postinstall": "tsc ./index.ts --outDir ./build"
+    "postinstall": "tsc ./index.ts"
   },
   "private": false
 }
