@@ -1,12 +1,12 @@
 export const parseThemeID = (string) => {
-	const split1 = string.split(':');
-	const service = split1[0];
+	const split1: String[] = string.split(':');
+	const service: String = split1[0];
 
-	const data = split1[1];
+	const data: String = split1[1];
 
-	const split2 = data.split('|');
-	const uuid = split2[0];
-	const piece_uuids = split2[1].split(',');
+	const split2: String[] = data.split('|');
+	const uuid: String = split2[0];
+	const piece_uuids: String[] = split2[1].split(',');
 
 	return {
 		service,
@@ -15,6 +15,15 @@ export const parseThemeID = (string) => {
 	};
 };
 
-export const stringifyThemeID = (service, { uuid, piece_uuids }) => {
+export const stringifyThemeID = (
+	service,
+	{
+		uuid,
+		piece_uuids,
+	}: {
+		uuid: String;
+		piece_uuids: String[];
+	}
+) => {
 	return `${service}:${uuid}|${piece_uuids.join()}`;
 };
