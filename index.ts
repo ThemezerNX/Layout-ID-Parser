@@ -1,16 +1,17 @@
 class TwoWayMap {
-	map: Object;
-	reverseMap: Object;
-	constructor(map) {
+	map: any;
+	reverseMap: any;
+	constructor(map: any) {
 		this.map = map;
 		this.reverseMap = {};
-		for (let key in map) {
+		for (const key in map) {
 			const value = map[key];
 			this.reverseMap[value] = key;
 		}
 	}
-	get = (key) => this.map[key];
-	getReverse = (key) => this.reverseMap[key];
+
+	get = (key: string) => this.map[key];
+	getReverse = (key: string) => this.reverseMap[key];
 }
 
 const convertID = new TwoWayMap({
@@ -45,9 +46,9 @@ export const parseThemeID = (ID: any) => {
 
 	const no_comments = ID.replace(/\(.*?\)/gm, '');
 
-	let service: String | null = null;
-	let data: String | null = null;
-	const split1: String[] = no_comments.split(':');
+	let service: string | null = null;
+	let data: string | null = null;
+	const split1: string[] = no_comments.split(':');
 	if (no_comments.includes(':')) {
 		service = split1[0];
 		data = split1[1];
@@ -57,7 +58,7 @@ export const parseThemeID = (ID: any) => {
 
 	const split2: String[] = data.split('|');
 	const uuid: String = split2[0];
-	const piece_uuids: String[] = (split2[1] || '').split(',');
+	const piece_uuids: string[] = (split2[1] || '').split(',');
 
 	return {
 		service,
@@ -71,12 +72,12 @@ export const stringifyThemeID = ({
 	uuid = '',
 	piece_uuids = [],
 }: {
-	service?: String;
-	uuid: String;
-	piece_uuids?: String[];
+	service?: string;
+	uuid: string;
+	piece_uuids?: string[];
 }) => {
-	const ID: String = service + ':' + uuid + (piece_uuids.length > 0 ? '|' + piece_uuids.join() : '');
-	const converted: String = convertID.getReverse(ID);
+	const ID: string = service + ':' + uuid + (piece_uuids.length > 0 ? '|' + piece_uuids.join() : '');
+	const converted: string = convertID.getReverse(ID);
 	if (converted) return converted;
 	else return ID;
 };
