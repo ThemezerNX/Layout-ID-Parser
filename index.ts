@@ -46,7 +46,7 @@ export const parseThemeID = (ID: any) => {
 	const no_comments = ID.replace(/\(.*?\)/gm, '');
 
 	let service: String | null = null;
-	let data: String = null;
+	let data: String | null = null;
 	const split1: String[] = no_comments.split(':');
 	if (no_comments.includes(':')) {
 		service = split1[0];
