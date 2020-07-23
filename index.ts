@@ -42,8 +42,8 @@ const convertID = new TwoWayMap({
 	builtin_SimpleLayoutLockscreen: 'Themezer:b388dfc8-4216-42e2-96aa-2121da42b263',
 	builtin_DogeLayout: 'Themezer:a323d9a9-7bae-4afd-912a-db9a1e37d279',
 	builtin_ClearLock: [
-		'Themezer:f8cdb51f-1f78-49f9-9e49-79e77b6ba558',
 		'Themezer:f8cdb51f-1f78-49f9-9e49-79e77b6ba558|44c5a3f7-302a-459f-8f32-eb28afcc931f',
+		'Themezer:f8cdb51f-1f78-49f9-9e49-79e77b6ba558',
 	],
 	builtin_TransparentPSL90SC:
 		'Themezer:c7323872-49f1-4abe-b526-c7650851fd76|b77b434f-5811-42fc-bd5e-ab44d7f24b61,d22d7557-99da-4710-a2d8-0bb3c7bfac14',
