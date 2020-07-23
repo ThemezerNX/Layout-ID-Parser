@@ -99,5 +99,3 @@ export const stringifyThemeID = ({
 	if (converted) return converted;
 	else return ID;
 };
-
-console.log(convertID.getReverse('Themezer:f8cdb51f-1f78-49f9-9e49-79e77b6ba558|44c5a3f7-302a-459f-8f32-eb28afcc931f'));
