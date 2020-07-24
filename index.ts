@@ -72,26 +72,26 @@ export const parseThemeID = (ID: any) => {
 	}
 
 	const split2: String[] = data.split('|');
-	const uuid: String = split2[0];
+	const id: String = split2[0];
 	const piece_uuids: string[] = (split2[1] || '').split(',');
 
 	return {
 		service,
-		uuid,
+		id,
 		piece_uuids: piece_uuids.filter((p) => p !== ''),
 	};
 };
 
 export const stringifyThemeID = ({
 	service = '',
-	uuid = '',
+	id = '',
 	piece_uuids = [],
 }: {
 	service?: string;
-	uuid: string;
+	id: string;
 	piece_uuids?: string[];
 }) => {
-	const ID: string = service + ':' + uuid + (piece_uuids.length > 0 ? '|' + piece_uuids.join() : '');
+	const ID: string = service + ':' + id + (piece_uuids.length > 0 ? '|' + piece_uuids.join() : '');
 	const converted: string = convertID.getReverse(ID);
 	if (converted) return converted;
 	else return ID;
