@@ -29,35 +29,35 @@ class TwoWayMap {
 
 const convertID = new TwoWayMap({
 	// ResidentMenu
-	builtin_CarefulLayout: 'Themezer:00006',
-	builtin_FlowLayout: 'Themezer:00005',
-	builtin_JAGLayout: 'Themezer:00002',
-	builtin_DogeLayout: 'Themezer:0000e',
-	builtin_DogeLayoutRound: 'Themezer:0000e|7638bb49-7475-4d11-a76a-ec9d63b12b94',
-	builtin_DiamondHome: 'Themezer:0000d',
-	builtin_SmallCompactHomescreen: 'Themezer:0000f',
-	builtin_RoundSmallCompactHome: 'Themezer:0000f|e818c9af-ca39-48cd-8ed1-a979b69ea142',
-
+	builtin_CarefulLayout: 'Themezer:6',
+	builtin_FlowLayout: 'Themezer:5',
+	builtin_JAGLayout: 'Themezer:2',
+	builtin_DogeLayout: 'Themezer:e',
+	builtin_DogeLayoutRound: 'Themezer:e|7638bb49-7475-4d11-a76a-ec9d63b12b94',
+	builtin_DiamondHome: 'Themezer:d',
+	builtin_SmallCompactHomescreen: 'Themezer:f',
+	builtin_RoundSmallCompactHome: 'Themezer:f|e818c9af-ca39-48cd-8ed1-a979b69ea142',
 	// builtin_TwoRowHome: '', OUTDATED
+
 	// Entrance
-	builtin_ClearLock: 'Themezer:00009',
-	builtin_SimpleLayoutLockscreen: 'Themezer:0000a',
-	builtin_SideLock: 'Themezer:00001',
-	builtin_MiniLock: 'Themezer:00013',
+	builtin_ClearLock: 'Themezer:9',
+	builtin_SimpleLayoutLockscreen: 'Themezer:a',
+	builtin_SideLock: 'Themezer:1',
+	builtin_MiniLock: 'Themezer:13',
 
 	// Flaunch
-	builtin_AllApps90S: 'Themezer:0000b',
-	builtin_AllApps90Round: 'Themezer:0000b|2ee3f0bc-9140-402e-bdfc-d50042c4d45e',
+	builtin_AllApps90S: 'Themezer:b',
+	builtin_AllApps90Round: 'Themezer:b|2ee3f0bc-9140-402e-bdfc-d50042c4d45e',
 
 	// Psl
 	builtin_TransparentPSL90SC:
-		'Themezer:00003|b77b434f-5811-42fc-bd5e-ab44d7f24b61,d22d7557-99da-4710-a2d8-0bb3c7bfac14',
+		'Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61,d22d7557-99da-4710-a2d8-0bb3c7bfac14',
 	builtin_TransparentPSL90ST:
-		'Themezer:00003|b77b434f-5811-42fc-bd5e-ab44d7f24b61,219eaa0a-9bbd-410c-9806-5bc898ad6849',
-	builtin_TransparentPSL90S: 'Themezer:00003|b77b434f-5811-42fc-bd5e-ab44d7f24b61,',
-	builtin_TransparentPSLCentered: 'Themezer:00003|d22d7557-99da-4710-a2d8-0bb3c7bfac14',
-	builtin_TransparentPSLTop: 'Themezer:00003|219eaa0a-9bbd-410c-9806-5bc898ad6849',
-	builtin_TransparentPSL: 'Themezer:00003',
+		'Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61,219eaa0a-9bbd-410c-9806-5bc898ad6849',
+	builtin_TransparentPSL90S: 'Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61,',
+	builtin_TransparentPSLCentered: 'Themezer:3|d22d7557-99da-4710-a2d8-0bb3c7bfac14',
+	builtin_TransparentPSLTop: 'Themezer:3|219eaa0a-9bbd-410c-9806-5bc898ad6849',
+	builtin_TransparentPSL: 'Themezer:3',
 });
 
 export const parseThemeID = (ID: any) => {
