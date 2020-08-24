@@ -108,7 +108,7 @@ export const getDefaultLayoutID = (target): string => {
 		user: 'Themezer:16',
 		apps: 'Themezer:15',
 		set: 'Themezer:1a',
-		news: 'Themezer:7',
+		news: 'Themezer:17',
 		psl: 'Themezer:18',
 	};
 
