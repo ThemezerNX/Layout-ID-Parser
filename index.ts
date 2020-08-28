@@ -53,7 +53,7 @@ const convertID = new TwoWayMap({
 	builtin_TransparentPSL90SC: 'Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61,d22d7557-99da-4710-a2d8-0bb3c7bfac14',
 	builtin_TransparentPSL90ST: 'Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61,219eaa0a-9bbd-410c-9806-5bc898ad6849',
 	builtin_TransparentPSL90S: 'Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61',
-	builtin_TransparentPSLCentered: 'Themezer:3|d22d7557-99da-4710-a2d8-0bb3c7bfac14',
+	builtin_TransparentPSLCenter: 'Themezer:3|d22d7557-99da-4710-a2d8-0bb3c7bfac14',
 	builtin_TransparentPSLTop: 'Themezer:3|219eaa0a-9bbd-410c-9806-5bc898ad6849',
 	builtin_TransparentPSL: 'Themezer:3',
 });
