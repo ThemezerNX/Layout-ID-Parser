@@ -75,8 +75,8 @@ export const parseThemeID = (ID: any) => {
 		data = split1[0];
 	}
 
-	const split2: String[] = data.split('|');
-	const id: String = split2[0];
+	const split2: string[] = data.split('|');
+	const id: string = split2[0];
 	const piece_uuids: string[] = (split2[1] || '').split(',');
 
 	return {
