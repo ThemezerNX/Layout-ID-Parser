@@ -10,5 +10,9 @@
     "compile": "tsc ./index.ts",
     "postinstall": "tsc ./index.ts"
   },
-  "private": false
+  "private": false,
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  }
 }
