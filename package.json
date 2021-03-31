@@ -1,6 +1,6 @@
 {
   "name": "@themezernx/layout-id-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple module to parse the ID string in a layout.",
   "repository": "https://github.com/ThemezerNX/Layout-ID-Parser.git",
   "author": "Migushthe2nd <Migushthe2nd@users.noreply.github.com>",
@@ -12,7 +12,7 @@
     "prepublishOnly": "yarn run build",
     "publish": "yarn publish --access=public"
   },
-  "dependencies": {
+  "devDependencies": {
     "typescript": "^4.2.3"
   },
   "files": [

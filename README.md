@@ -2,7 +2,7 @@
 
 A small library that parses the ID string in a layout `json` file.
 
-# Example
+# Examples
 
 ```js
 import { parseID, stringifyID, getDefaultID } from "@themezernx/layout-id-parser";
