@@ -9,5 +9,5 @@ A small library that parses the ID string in a layout `json` file.
 yarn
 
 # compile the script
-yarn run compile
+yarn run build
 ```

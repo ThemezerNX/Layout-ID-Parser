@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc ./index.ts",
+    "build": "tsc ./index.ts",
     "postinstall": "tsc ./index.ts"
   },
   "private": false,
