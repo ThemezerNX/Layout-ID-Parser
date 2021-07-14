@@ -77,12 +77,21 @@ export const parseID = (ID: any) => {
 
 	const split2: string[] = data.split("|");
 	const id: string = split2[0];
-	const piece_uuids: string[] = (split2[1] || "").split(",");
+	const pieces: string[] = (split2[1] || "").split(",").filter((p) => p !== "");
+	const piece_variables: any = {};
+
+	const piece_uuids = pieces.map((piece) => {
+		const json = piece.match(/{.+}/m);
+		piece_variables[piece] = json ? JSON.parse(json[0]) : null;
+
+		return piece.replace(/{.+}/m, "");
+	});
 
 	return {
 		service,
 		id,
-		piece_uuids: piece_uuids.filter((p) => p !== ""),
+		piece_uuids,
+		piece_variables,
 	};
 };
 
@@ -90,12 +99,19 @@ export const stringifyID = ({
 	service = "",
 	id = "",
 	piece_uuids = [],
+	piece_variables = {},
 }: {
 	service?: string;
 	id: string;
 	piece_uuids?: string[];
+	piece_variables?: any;
 }) => {
-	const ID: string = service + ":" + id + (piece_uuids.length > 0 ? "|" + piece_uuids.join() : "");
+	const pieces = piece_uuids.map((uuid) => {
+		const pv = piece_variables[uuid];
+		return uuid + (pv ? JSON.stringify(pv) : "");
+	});
+
+	const ID: string = service + ":" + id + (pieces.length > 0 ? "|" + pieces.join() : "");
 	const converted: string = convertID.getReverse(ID);
 	if (converted) return converted;
 	else return ID;
