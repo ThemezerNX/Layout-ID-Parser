@@ -1,7 +1,7 @@
 {
   "name": "@themezernx/layout-id-parser",
   "version": "1.1.1",
-  "description": "Simple module to parse the ID string in a layout.",
+  "description": "A small library that parses the ID string in a Nintendo Switch layout json file.",
   "repository": "https://github.com/ThemezerNX/Layout-ID-Parser.git",
   "author": "Migushthe2nd <Migushthe2nd@users.noreply.github.com>",
   "license": "MIT",

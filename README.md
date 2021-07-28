@@ -1,6 +1,6 @@
 # Layout ID Parser
 
-A small library that parses the ID string in a layout `json` file.
+A small library that parses the ID string in a Nintendo Switch layout `json` file.
 
 # Examples
 
