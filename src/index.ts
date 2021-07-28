@@ -63,12 +63,10 @@ export const parseID = (ID: any) => {
 	const converted = convertID.get(ID);
 	if (converted) ID = converted;
 
-	const no_comments = ID.replace(/\(.*?\)/gm, "");
-
 	let service: string | null = null;
 	let data: string | null = null;
-	const split1: string[] = no_comments.split(":");
-	if (no_comments.includes(":")) {
+	const split1: string[] = ID.split(":");
+	if (ID.includes(":")) {
 		service = split1[0];
 		data = split1[1];
 	} else {
@@ -77,41 +75,25 @@ export const parseID = (ID: any) => {
 
 	const split2: string[] = data.split("|");
 	const id: string = split2[0];
-	const pieces: string[] = (split2[1] || "").split(",").filter((p) => p !== "");
-	const piece_variables: any = {};
-
-	const piece_uuids = pieces.map((piece) => {
-		const json = piece.match(/{.+}/m);
-		piece_variables[piece] = json ? JSON.parse(json[0]) : null;
-
-		return piece.replace(/{.+}/m, "");
-	});
+	const optionUuids: string[] = (split2[1] || "").split(",").filter((p) => p !== "");
 
 	return {
 		service,
 		id,
-		piece_uuids,
-		piece_variables,
+		optionUuids,
 	};
 };
 
 export const stringifyID = ({
 	service = "",
 	id = "",
-	piece_uuids = [],
-	piece_variables = {},
+	optionUuids = [],
 }: {
 	service?: string;
 	id: string;
-	piece_uuids?: string[];
-	piece_variables?: any;
+	optionUuids?: string[];
 }) => {
-	const pieces = piece_uuids.map((uuid) => {
-		const pv = piece_variables[uuid];
-		return uuid + (pv ? JSON.stringify(pv) : "");
-	});
-
-	const ID: string = service + ":" + id + (pieces.length > 0 ? "|" + pieces.join() : "");
+	const ID: string = service + ":" + id + (optionUuids.length > 0 ? "|" + optionUuids.join() : "");
 	const converted: string = convertID.getReverse(ID);
 	if (converted) return converted;
 	else return ID;
