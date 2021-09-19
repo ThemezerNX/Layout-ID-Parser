@@ -91,7 +91,7 @@ export function parseID(ID: string) {
 	};
 }
 
-export const stringifyID = ({ service, id, options = [] }: { service: string; id: string; options: Option[] }) => {
+export const stringifyID = ({ service, id, options = [] }: { service: string; id: string; options?: Option[] }) => {
 	const optionStrings = options.map((o) => (o.variable ? `${o.uuid}(${o.variable})` : o.uuid));
 	const ID: string = service + ":" + id + (optionStrings.length > 0 ? "|" + optionStrings.join(",") : "");
 	const converted: string = convertID.getReverse(ID);
