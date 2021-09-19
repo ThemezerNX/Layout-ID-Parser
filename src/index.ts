@@ -1,7 +1,7 @@
 class TwoWayMap {
 	map: any;
 	reverseMap: any;
-	constructor(map: any) {
+	constructor(map: object) {
 		this.map = map;
 		this.reverseMap = {};
 		for (const key in map) {
@@ -37,7 +37,7 @@ const convertID = new TwoWayMap({
 	builtin_DiamondHome: "Themezer:d",
 	builtin_SmallCompactHomescreen: "Themezer:f",
 	builtin_RoundSmallCompactHome: "Themezer:f|e818c9af-ca39-48cd-8ed1-a979b69ea142",
-	// builtin_TwoRowHome: '', OUTDATED
+	builtin_TwoRowHome: "Themezer:2c",
 
 	// Entrance
 	builtin_ClearLock: "Themezer:9",
@@ -58,42 +58,42 @@ const convertID = new TwoWayMap({
 	builtin_TransparentPSL: "Themezer:3",
 });
 
-export const parseID = (ID: any) => {
-	if (typeof ID !== "string") return;
+interface Option {
+	uuid: string;
+	variable?: string;
+}
+
+const serviceREGEX = /(.+?):(.+?)(?:$|\|)(.+)?/g;
+const optionREGEX = /(.+?)(?:\((.*)\))?(?:$|,)/g;
+
+export function parseID(ID: string) {
 	const converted = convertID.get(ID);
 	if (converted) ID = converted;
 
-	let service: string | null = null;
-	let data: string | null = null;
-	const split1: string[] = ID.split(":");
-	if (ID.includes(":")) {
-		service = split1[0];
-		data = split1[1];
-	} else {
-		data = split1[0];
+	const IDparts = Array.from(ID.matchAll(serviceREGEX))[0];
+	if (!IDparts) return;
+
+	const options: Option[] = [];
+	if (IDparts[3] != null) {
+		// There are options
+		for (const option of IDparts[3].matchAll(optionREGEX)) {
+			options.push({
+				uuid: option[1],
+				variable: option.length === 3 ? option[2] : undefined,
+			});
+		}
 	}
 
-	const split2: string[] = data.split("|");
-	const id: string = split2[0];
-	const optionUuids: string[] = (split2[1] || "").split(",").filter((p) => p !== "");
-
 	return {
-		service,
-		id,
-		optionUuids,
+		service: IDparts[1],
+		id: IDparts[2],
+		options,
 	};
-};
+}
 
-export const stringifyID = ({
-	service = "",
-	id = "",
-	optionUuids = [],
-}: {
-	service?: string;
-	id: string;
-	optionUuids?: string[];
-}) => {
-	const ID: string = service + ":" + id + (optionUuids.length > 0 ? "|" + optionUuids.join() : "");
+export const stringifyID = ({ service, id, options = [] }: { service: string; id: string; options: Option[] }) => {
+	const optionStrings = options.map((o) => (o.variable ? `${o.uuid}(${o.variable})` : o.uuid));
+	const ID: string = service + ":" + id + (optionStrings.length > 0 ? "|" + optionStrings.join(",") : "");
 	const converted: string = convertID.getReverse(ID);
 	if (converted) return converted;
 	else return ID;
@@ -109,6 +109,6 @@ const DEFAULT_IDS = {
 	psl: "Themezer:18",
 };
 
-export const getDefaultID = (target: string): string => {
+export const getDefaultID = (target: keyof typeof DEFAULT_IDS): string => {
 	return DEFAULT_IDS[target];
 };

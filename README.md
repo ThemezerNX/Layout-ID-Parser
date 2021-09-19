@@ -7,18 +7,37 @@ A small library that parses the ID string in a Nintendo Switch layout `json` fil
 ```js
 import { parseID, stringifyID, getDefaultID } from "@themezernx/layout-id-parser";
 
-// Parse the ID from a layout to an Object
-console.log(parseID("Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61"));
-// --> {service: "Themezer", id: "3", optionUuids: ["b77b434f-5811-42fc-bd5e-ab44d7f24b61"]}
-console.log(parseID("Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61, adfasdff-5811-42fc-bd5e-ab44d7f24b61"));
-// --> {service: "Themezer", id: "3", optionUuids: ["b77b434f-5811-42fc-bd5e-ab44d7f24b61", "adfasdff-5811-42fc-bd5e-ab44d7f24b61"]}
+console.log(parseID("Themezer:3"));
+// --> {
+// 	    service: "Themezer",
+//  	id: "3",
+//  	options: []
+// }
+console.log(parseID("Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61,adfasdff-5811-42fc-bd5e-ab44d7f24b61"));
+// --> {
+// 	    service: "Themezer",
+//  	id: "3",
+//  	options: [
+//  		{uuid: "b77b434f-5811-42fc-bd5e-ab44d7f24b61", variable: undefined},
+//  		{uuid: "adfasdff-5811-42fc-bd5e-ab44d7f24b61", variable: undefined}
+// 	    ]
+// }
+console.log(parseID("Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61(HELLO),adfasdff-5811-42fc-bd5e-ab44d7f24b61(25)"));
+// --> {
+// 	    service: "Themezer",
+//  	id: "3",
+//  	options: [
+//  		{uuid: "b77b434f-5811-42fc-bd5e-ab44d7f24b61", variable: "HELLO"},
+//  		{uuid: "adfasdff-5811-42fc-bd5e-ab44d7f24b61", variable: "25"}
+// 	    ]
+// }
 
 // Parse an Object to a layout ID string
 console.log(
 	stringifyID({
 		service: "Themezer",
 		id: "3",
-		optionUuids: ["b77b434f-5811-42fc-bd5e-ab44d7f24b61"],
+		options: [{ uuid: "b77b434f-5811-42fc-bd5e-ab44d7f24b61", variable: "100" }],
 	})
 );
 // --> "Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61"

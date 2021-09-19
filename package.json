@@ -1,6 +1,6 @@
 {
   "name": "@themezernx/layout-id-parser",
-  "version": "1.1.1",
+  "version": "2.0",
   "description": "A small library that parses the ID string in a Nintendo Switch layout json file.",
   "repository": "https://github.com/ThemezerNX/Layout-ID-Parser.git",
   "author": "Migushthe2nd <Migushthe2nd@users.noreply.github.com>",
@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "yarn run build",
-    "publish": "yarn publish --access=public"
+    "publish": "yarn publish --access=public",
+    "test": "yarn run build && node ./test/index.js"
   },
   "devDependencies": {
     "typescript": "^4.2.3"
