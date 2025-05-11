@@ -40,7 +40,7 @@ console.log(
 		options: [{ uuid: "b77b434f-5811-42fc-bd5e-ab44d7f24b61", variable: "100" }],
 	})
 );
-// --> "Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61"
+// --> "Themezer:3|b77b434f-5811-42fc-bd5e-ab44d7f24b61(100)"
 
 // Get the layout ID associated with the default layout
 console.log(getDefaultID("home"));
